@@ -18,22 +18,31 @@
 
   /* Style the header */
   .header {
-    background-color: #f1f1f1;
+    background-color: white;
     padding: 20px;
     text-align: center;
+  }
+  .header h1 {
+    font-size: 80px;
+  }
+
+  .header p{
+    font-size: 20px;
+    padding: 0 20%;
   }
   
   /* Style the top navigation bar */
   .topnav {
     overflow: hidden;
-    background-color: #333;
+    background-color:white;
+    border-bottom: 2px solid #d35400;
   }
   
   /* Style the topnav links */
   .topnav a {
     float: left;
     display: block;
-    color: #f2f2f2;
+    color: black;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -41,8 +50,8 @@
   
   /* Change color on hover */
   .topnav a:hover {
-    background-color: #ddd;
-    color: black;
+    background-color: #d35400;
+    color:white;
   }
   
   /* Create three unequal columns that floats next to each other */
@@ -56,9 +65,16 @@
     width: 66.6%;
   }
 
-  /* Left and right column */
+  /*right column */
   .column.right {
     width: 33.3%;
+  }
+
+  /*right column parrafs*/
+   .column.right p{
+    padding: 20px;
+    background-color: #117a65;
+    color: white;
   }
   
   /* Clear floats after the columns */
