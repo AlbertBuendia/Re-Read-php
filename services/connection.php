@@ -17,3 +17,4 @@ if (!$conn) {
 }else {
     mysqli_connect_charset($conn, "utf8");
 }
+?>
