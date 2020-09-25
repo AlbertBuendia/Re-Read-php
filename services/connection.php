@@ -1,7 +1,7 @@
 <?php
 // ESTILO POR PRODECEDIMIENTOS
 
-$host =" localhost";
+$host = "localhost";
 $user = "root";
 $pass = "";
 $db = "reread";
@@ -15,6 +15,6 @@ if (!$conn) {
     echo "Error de depuración: " . mysqli_connect_errno() . PHP_EOL;
     exit;
 }else {
-    mysqli_connect_charset($conn, "utf8");
+    mysqli_set_charset($conn, "utf8");
 }
 ?>

@@ -26,28 +26,32 @@
       
     <h3>Toda la actualidad en eBook</h3>
     
-    <div class="eBook">
+    <!--<div class="eBook">
       <a href="https://www.amazon.es/Ultimo-deseo-Geralt-Alamut-Fantástica/dp/8498890373/ref=sr_1_1?__mk_es_ES=ÅMÅŽÕÑ&crid=2XKVBNZSYHD4K&dchild=1&keywords=saga+geralt+de+rivia&qid=1600765706&s=books&sprefix=saga+%2Cstripbooks%2C201&sr=1-1"><img src="../img/1.jpg" alt="eBook 1">
       <div>Ultimo deseo - Saga Geralt de Rivia 1 tela (Alamut Serie Fantástica)</div>
       </a>
-    </div>
-    <div class="eBook">
-      <a href="https://www.amazon.es/Espada-del-destino-Geralt-Fantástica/dp/8498890438/ref=sr_1_2?__mk_es_ES=ÅMÅŽÕÑ&crid=2XKVBNZSYHD4K&dchild=1&keywords=saga+geralt+de+rivia&qid=1600765706&s=books&sprefix=saga+%2Cstripbooks%2C201&sr=1-2"><img src="../img/2.jpg" alt="eBook 2">
-      <div>Espada del destino - Saga Geralt de Rivia 2 tela (Alamut Serie Fantástica)</div>
-      </a>
-    </div>
-    <div class="eBook">
-      <a href="https://www.amazon.es/Torre-golondrina-Geralt-Alamut-Fantástica/dp/8498890578/ref=sr_1_3?__mk_es_ES=ÅMÅŽÕÑ&crid=2XKVBNZSYHD4K&dchild=1&keywords=saga+geralt+de+rivia&qid=1600765706&s=books&sprefix=saga+%2Cstripbooks%2C201&sr=1-3"><img src="../img/3.jpg" alt="eBook 3">
-      <div>Torre de la golondrina - Saga Geralt de Rivia 6 tela (Alamut Serie Fantástica)</div>
-      </a>
-    </div>
-    <div class="eBook">
-      <a href="https://www.amazon.es/Tiempo-odio-Geralt-Alamut-Fantástica/dp/8498890535/ref=sr_1_5?__mk_es_ES=ÅMÅŽÕÑ&crid=2XKVBNZSYHD4K&dchild=1&keywords=saga+geralt+de+rivia&qid=1600765706&s=books&sprefix=saga+%2Cstripbooks%2C201&sr=1-5"><img src="../img/4.jpg" alt="eBook 4">
-      <div>Tiempo de odio - Saga Geralt de Rivia 4 tela (Alamut Serie Fantástica)</div>
-      </a>
-    </div>
+    </div>-->
   </div>
-  
+  <?php
+
+  // 1. Conexion con la base de datos
+  include '../services/connection.php';
+  // 2. Selecciiion y muestra de datos de la base de datos
+  $result = mysqli_query($conn, "SELECT Books.Description, Books.img, Books.Title from Books");
+
+  if(!empty($result) && mysqli_num_rows($result) > 0) {
+    // datos de salida de cada fila (fila = row)
+      while ($row = mysqli_fetch_array($result)) {
+        echo "<div class='eBook'>";
+        //Añadimos la imagen a la pagina con la etiqueta img de html
+        echo "<img src=../img/".$row['img']." alt'".$row['Title']."'>'";
+        //Añadimos el titulo a la pagina con la etiqueta h2 de html
+        //echo "<div class='desc'".$row['Title']."</div>;
+      }
+  }else {
+    echo "0 resultados";
+  }
+  ?>
   <div class="column right">
     <h2>Side</h2>
     <p>Cien años de soledad</p>
