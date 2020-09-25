@@ -1,0 +1,127 @@
+* {
+    box-sizing: border-box;
+    font-family: monospace;
+  }
+  
+  body {
+    margin: 0;
+  }
+  
+  /* Style the logo */
+  .logo {
+    background-color: #0b5345;
+    padding: 20px;
+    text-align: left;
+    color:white;
+    font-size: 20px;
+  }
+
+  /* Style the header */
+  .header {
+    background-color: white;
+    padding: 20px;
+    text-align: center;
+  }
+  .header h1 {
+    font-size: 80px;
+  }
+
+  .header p{
+    font-size: 20px;
+    padding: 0 20%;
+  }
+  
+  /* Style the top navigation bar */
+  .topnav {
+    overflow: hidden;
+    background-color:white;
+    border-bottom: 2px solid #d35400;
+  }
+  
+  /* Style the topnav links */
+  .topnav a {
+    float: left;
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  /* Change color on hover */
+  .topnav a:hover {
+    background-color: #d35400;
+    color:white;
+  }
+  
+  /* Create three unequal columns that floats next to each other */
+  .column {
+    float: left;
+    padding: 10px;
+  }
+  
+  /* Left column */
+  .column.left {
+    width: 66.6%;
+  }
+
+  /*right column */
+  .column.right {
+    width: 33.3%;
+  }
+
+  /*right column parrafs*/
+   .column.right p{
+    padding: 20px;
+    background-color: #117a65;
+    color: white;
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  .alineacionImg {
+    float: left;
+    width: 33.3%;
+    padding: 20px;
+  }
+  
+  .alineacionImg img{
+    width: 100%;
+  }
+
+  .eBook{
+    float: right;
+    width: 33.2%;
+    padding: 20px;
+
+  }
+
+  .eBook img{
+    width: 100%;
+  }
+
+  .eBook:hover{
+    background-color: red;
+    color: white;
+  }
+  
+  /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 600px) {
+    .column.side, .column.column.right , .eBook{
+      width: 100%;
+    }
+
+    .header p{
+      padding: 0;
+    }
+
+    .topnav a{
+      width: 100%;
+      font-size: 20px;
+    }
+  }
