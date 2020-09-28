@@ -31,12 +31,12 @@
       <div>Ultimo deseo - Saga Geralt de Rivia 1 tela (Alamut Serie Fantástica)</div>
       </a>
     </div>-->
-  </div>
+  
   <?php
 
   // 1. Conexion con la base de datos
   include '../services/connection.php';
-  // 2. Selecciiion y muestra de datos de la base de datos
+  // 2. Selección y muestra de datos de la base de datos
   $result = mysqli_query($conn, "SELECT Books.Description, Books.img, Books.Title from Books");
 
   if(!empty($result) && mysqli_num_rows($result) > 0) {
@@ -44,14 +44,16 @@
       while ($row = mysqli_fetch_array($result)) {
         echo "<div class='eBook'>";
         //Añadimos la imagen a la pagina con la etiqueta img de html
-        echo "<img src=../img/".$row['img']." alt'".$row['Title']."'>'";
+        echo "<img src=../img/".$row['img']." alt'".$row['Title']."'>";
         //Añadimos el titulo a la pagina con la etiqueta h2 de html
         //echo "<div class='desc'".$row['Title']."</div>;
+        echo "</div>";
       }
   }else {
     echo "0 resultados";
   }
   ?>
+  </div>
   <div class="column right">
     <h2>Side</h2>
     <p>Cien años de soledad</p>
