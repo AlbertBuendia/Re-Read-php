@@ -5,6 +5,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="../css/estilos.css">
+<script src="../javascript/code.js"></script>
 </head>
 <body>
 
@@ -48,7 +49,7 @@
         //Añadimos la imagen a la pagina con la etiqueta img de html
         echo "<img src=../img/".$row['img']." alt'".$row['Title']."'>";
         //Añadimos el titulo a la pagina con la etiqueta h2 de html
-        echo "<div class='desc'>".$row['Description']."</div>";
+        echo "<div class='desc' id='desc'>".$row['Description']."</div>";
         echo "</div>";
         if ($i%3==0) {
           echo "<div style='clear:both;'></div>";
