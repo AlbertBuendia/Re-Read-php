@@ -38,7 +38,6 @@
   include '../services/connection.php';
   // 2. Selección y muestra de datos de la base de datos
   $result = mysqli_query($conn, "SELECT Books.Description, Books.img, Books.Title from Books");
-
   if(!empty($result) && mysqli_num_rows($result) > 0) {
     // datos de salida de cada fila (fila = row)
       while ($row = mysqli_fetch_array($result)) {
@@ -47,6 +46,7 @@
         echo "<img src=../img/".$row['img']." alt'".$row['Title']."'>";
         //Añadimos el titulo a la pagina con la etiqueta h2 de html
         //echo "<div class='desc'".$row['Title']."</div>;
+        //<div style='clear:both;'></div> i % 3==0
         echo "</div>";
       }
   }else {
