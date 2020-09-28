@@ -54,8 +54,8 @@
   }
   ?>
   </div>
-  <div class='column right'>;
-    <h2>Top ventas</h2>;
+  <div class='column right'>
+    <h2>Top ventas</h2>
 <?php
   $result = mysqli_query($conn, "SELECT Books.Title from Books");
   if(!empty($result) && mysqli_num_rows($result) > 0) {
