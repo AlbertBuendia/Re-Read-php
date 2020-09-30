@@ -19,9 +19,9 @@
   
   <div class="column left">
     <div class="topnav">
-        <a href="index.html">Re-Read</a>
-        <a href="view/libros.html">Libros</a>
-        <a href="view/ebooks.html">eBooks</a>
+        <a href="index.php">Re-Read</a>
+        <a href="view/libros.php">Libros</a>
+        <a href="view/ebooks.php">eBooks</a>
       </div>
       
     <h3>Nunca la lectura ha sida tan necesaria</h3>
@@ -31,11 +31,20 @@
   </div>
   
   <div class="column right">
-    <h2>Side</h2>
-    <p>Cien años de soledad</p>
-    <p>Cronicas de una muerte anunciada</p>
-    <p>El otoño del patriarca</p>
-    <p>El general en su laberinto</p>
+  <?php
+    include './services/connection.php';
+  $result = mysqli_query($conn, "SELECT Books.Title from Books");
+  if(!empty($result) && mysqli_num_rows($result) > 0) {
+    while ($row = mysqli_fetch_array($result)) {
+  
+    echo "<p>".$row['Title']."</p>";
+   //<p>Cien años de soledad</p>
+    //<p>Cronicas de una muerte anunciada</p>
+    //<p>El otoño del patriarca</p>
+    //<p>El general en su laberinto</p>
+    }
+  }
+  ?>
   </div>
 </div>
   
