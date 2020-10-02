@@ -45,12 +45,34 @@
       </form>
     </div>
     <?php
+     include '../services/connection.php';
     if (isset($_POST['fautor'])){
       //Filtrara los ebooks que se mostraran en la pagina
+      $query="SELECT Books.Description, Books.img, Books.Title from books inner join BooksAuthors on 
+      Id=BooksAuthors.BookId inner join Authors on Authors.Id= BooksAuthors.AuthorId
+      where Authors.Name like '%{$_POST['fautor']}%'";
+      $result = mysqli_query($conn, $query);
     }else {
-      //Mostrara todos los ebooks de la base de datos
-      
+      $result = mysqli_query($conn, "SELECT Books.Description, Books.img, Books.Title from books");
     }
+    if(!empty($result) && mysqli_num_rows($result) > 0) {
+      // datos de salida de cada fila (fila = row)
+      $i=0;
+        while ($row = mysqli_fetch_array($result)) {
+          $i++;
+          echo "<div class='eBook'>";
+          //Añadimos la imagen a la pagina con la etiqueta img de html
+          echo "<img src=../img/".$row['img']." alt'".$row['Title']."'>";
+          //Añadimos el titulo a la pagina con la etiqueta h2 de html
+          echo "<div class='desc' id='desc'>".$row['Description']."</div>";
+          echo "</div>";
+          if ($i%3==0) {
+            echo "<div style='clear:both;'></div>";
+          }
+        }
+        }else {
+          echo "0 resultados";
+        }
     ?>
     
     <!--<div class="eBook">
@@ -58,33 +80,6 @@
       <div>Ultimo deseo - Saga Geralt de Rivia 1 tela (Alamut Serie Fantástica)</div>
       </a>
     </div>-->
-  
-  <?php
-
-  // 1. Conexion con la base de datos
-  include '../services/connection.php';
-  // 2. Selección y muestra de datos de la base de datos
-  $result = mysqli_query($conn, "SELECT Books.Description, Books.img, Books.Title from Books");
-
-  if(!empty($result) && mysqli_num_rows($result) > 0) {
-    // datos de salida de cada fila (fila = row)
-    $i=0;
-      while ($row = mysqli_fetch_array($result)) {
-        $i++;
-        echo "<div class='eBook'>";
-        //Añadimos la imagen a la pagina con la etiqueta img de html
-        echo "<img src=../img/".$row['img']." alt'".$row['Title']."'>";
-        //Añadimos el titulo a la pagina con la etiqueta h2 de html
-        echo "<div class='desc' id='desc'>".$row['Description']."</div>";
-        echo "</div>";
-        if ($i%3==0) {
-          echo "<div style='clear:both;'></div>";
-        }
-      }
-  }else {
-    echo "0 resultados";
-  }
-  ?>
   </div>
   <div class='column right'>
     <h2>Top ventas</h2>
