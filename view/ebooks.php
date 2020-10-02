@@ -33,24 +33,29 @@
         <!--
         <label for="lname">Last Name</label>
         <input type="text" id="lname" name="lastname" placeholder="Your last name..">
-
-        <label for="country">Country</label>
-        <select id="country" name="country">
-        <option value="australia">Australia</option>
-        <option value="canada">Canada</option>
-        <option value="usa">USA</option>
-        </select>
         -->
+        <label for="country">Pais</label>
+        <select id="country" name="country">
+        <option value="%">Todos los paises</option>
+        <?php
+        include '../services/connection.php';
+        $query= "SELECT DISTINCT Authors.Country from Authors order by Country";
+        $result=mysql_query($conn, $query);
+        while ($row = mysqli_fetch_array($result)) {
+          echo '<option value="'.$row[Country].'">'.$row[Country].'</option>';
+        }
+        ?>
+        </select>
         <input type="submit" value="Buscar">
-      </form>
+        </form>
     </div>
     <?php
-     include '../services/connection.php';
     if (isset($_POST['fautor'])){
       //Filtrara los ebooks que se mostraran en la pagina
       $query="SELECT Books.Description, Books.img, Books.Title from books inner join BooksAuthors on 
       Id=BooksAuthors.BookId inner join Authors on Authors.Id= BooksAuthors.AuthorId
-      where Authors.Name like '%{$_POST['fautor']}%'";
+      where Authors.Name like '%{$_POST['fautor']}%'
+      and Authors.Country like '{$_POST['country']}'";
       $result = mysqli_query($conn, $query);
     }else {
       $result = mysqli_query($conn, "SELECT Books.Description, Books.img, Books.Title from books");
