@@ -26,7 +26,7 @@
       
     <h3>Toda la actualidad en eBook</h3>
     <!--Nuevo desarollo: Formulario para filtrar-->
-    <div>
+    <div id="form">
       <form action="ebooks.php" method="POST">
         <label for="fautor">Autor</label>
         <input type="text" id="fautor" name="fautor" placeholder="Introduce el autor...">
