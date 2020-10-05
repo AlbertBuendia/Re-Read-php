@@ -46,7 +46,7 @@
     </div>
     <?php 
       // BUSQUEDA DE AUTOR Y TITULO
-      if(isset($_POST['fautor']) || isset($_POST['ftitulo'])){
+      if(isset($_POST['fautor']) and isset($_POST['ftitulo'])){
         $result=mysqli_query($conn,"SELECT Books.Description, Books.img, Books.Title From Books INNER JOIN booksauthors ON books.id=booksauthors.BookId 
         INNER JOIN authors ON authors.id=booksauthors.AuthorId WHERE authors.Name LIKE '%{$_POST['fautor']}%' AND authors.country LIKE '{$_POST['country']}'AND books.title LIKE '%{$_POST['ftitulo']}%'");
       }else {
