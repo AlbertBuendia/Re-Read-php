@@ -22,7 +22,7 @@
         <a href="ebooks.php">eBooks</a>
     </div>
       <h3>Toda la actualidad en eBook</h3>
-    <div class="form">
+    <div id="form">
       <!--HACEMOS EL FORMULARIO -->
       <form action="ebooks.php" method="POST">
         <label for="fautor">Autor</label>
@@ -31,7 +31,7 @@
         <input type="text" id="ftitulo" name="ftitulo" placeholder="Introduce el título...">
         <label for="country">País</label>
         <select name="country">
-        <option value="%">Selecciona un pais</option>
+        <option value="%">Todos los paises</option>
         <?php 
         // CONECTAMOS CON LA BASE DE DATOS
         include '../services/connection.php';
