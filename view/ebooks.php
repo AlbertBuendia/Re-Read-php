@@ -72,6 +72,7 @@
     ?>
   </div>
   <div class="column right">
+  <h2>Top ventas</h2>
     <?php 
       $result=mysqli_query($conn,"SELECT Books.Description, Books.img, Books.Title From Books WHERE Top='1'");
       if (!empty($result) && mysqli_num_rows($result) > 0) {
